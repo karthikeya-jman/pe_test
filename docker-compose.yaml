@@ -1,0 +1,13 @@
+services:
+  reader:
+    image: karthikeyatumpudi/reader
+    volumes:
+      - ./shared:/shared
+    build: ./Reader_app
+    depends_on:
+      - writer
+  writer:
+    image: karthikeyatumpudi/writer
+    volumes:
+      - ./shared:/shared
+    build: ./Writer_app
