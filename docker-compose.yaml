@@ -1,13 +1,17 @@
 services:
   reader:
-    image: karthikeyatumpudi/reader
+    # image: karthikeyatumpudi/reader
     volumes:
       - ./shared:/shared
-    build: ./Reader_app
+    build: 
+      context: ./Reader_app
+      dockerfile: Dockerfile
     depends_on:
       - writer
   writer:
-    image: karthikeyatumpudi/writer
+    # image: karthikeyatumpudi/writer
     volumes:
       - ./shared:/shared
-    build: ./Writer_app
+    build: 
+      context: ./Writer_app
+      dockerfile: Dockerfile
